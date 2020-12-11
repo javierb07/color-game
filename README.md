@@ -4,3 +4,6 @@ A web based color guessing game designed to help practice RGB and hexadecimal co
 ## Additions from the base code
 * Hardest mode
 * Number of guesses tracker
+
+### Play the game from Github Pages:
+https://javierb07.github.io/Color_Game/
