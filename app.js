@@ -2,6 +2,10 @@ var express = require("express"),
     app     = express(),
     mysql   = require('mysql');
 
+// App configuration
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+
 
 
 // Landing route
