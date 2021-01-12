@@ -6,17 +6,6 @@ var express = require("express"),
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
-// Database configuration
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "yourusername",
-    password: "yourpassword"
-  });
-  
-con.connect(function(err) {
-if (err) throw err;
-console.log("Connected!");
-});
 
 // Landing route
 app.get('/', function(req,res){
