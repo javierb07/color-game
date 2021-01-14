@@ -75,7 +75,7 @@ function setupSquares(){
 			var clickedColor = this.style.background;
 			//compare color to pickedColor
 			if(clickedColor === pickedColor){
-				score+=1+corrects;
+				score+=5+corrects;
 				this.style.background = "#232323";
 				h1.style.background = clickedColor;
 				choices++;
