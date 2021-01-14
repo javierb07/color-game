@@ -36,14 +36,6 @@
 							<td><%=score%></td>
 						</tr>
 					<%});%>
-				<% } else { %>
-					<% var name = "-"; %>
-					<% var score = "-"; %>
-					<tr class="easy>">
-						<td><%=name %></td>
-						<td><%=score%></td>
-					</tr>
-				<% } %>
 				<% if (playersHard.length > 0) { %>
 					<% playersHard.forEach(function(player){%>
 						<% var name = player.playername; %>
@@ -52,15 +44,7 @@
 							<td><%=name%></td>
 							<td><%=score%></td>
 						</tr>
-					<%});%>
-				<% } else { %>
-					<% var name = "-"; %>
-					<% var score = "-"; %>
-					<tr class="hard">
-						<td><%=name %></td>
-						<td><%=score%></td>
-					</tr>
-				<% } %>
+				<%});%>
 				<% if (playersHardest.length > 0) { %>
 					<% playersHardest.forEach(function(player){%>
 						<% var name = player.playername; %>
@@ -69,15 +53,7 @@
 							<td><%=name%></td>
 							<td><%=score%></td>
 						</tr>
-					<%});%>
-				<% } else { %>
-					<% var name = "-"; %>
-					<% var score = "-"; %>
-					<tr class="hardest">
-						<td><%=name %></td>
-						<td><%=score%></td>
-					</tr>
-				<% } %>
+				<%});%>
 				</table>
 			</div>
 		<script type="text/javascript" src="/scripts/scores.js"></script>
