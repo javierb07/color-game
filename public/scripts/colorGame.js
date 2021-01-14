@@ -154,6 +154,7 @@ function randomColor(){
 }
 
 function endGame(){
+	removeSquares()
 	var sendData = {playerName: playerName, score: score, difficulty: mode, id: playerID}
 	console.log(sendData);
 	$.ajax({
@@ -164,8 +165,14 @@ function endGame(){
 		},      //Data as js object
 		success: function () {
 			setTimeout(() => {
-				window.location.href = window.location.href.slice(0,window.location.href.length-9)+"/scores";  
+				window.location.href = window.location.href.slice(0,window.location.href.length-11)+"/scores"; 
 			}, 2000);
 		}
 	})
+}
+
+function removeSquares(){
+	for(var i = 0; i < squares.length; i++){
+		squares[i].style.display = "none";
+	}
 }
