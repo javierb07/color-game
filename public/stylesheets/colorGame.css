@@ -23,13 +23,13 @@ body {
 
 h1 {
 	text-align: center;
-	line-height: 1.1;
+	line-height: 1.1em;
 	font-weight: normal;
 	color: white;
 	background: steelblue;
 	margin: 0;
 	text-transform: uppercase;
-	padding: 20px 0;
+	height: auto;
 }
 
 #colorDisplay {
@@ -39,12 +39,29 @@ h1 {
 #message {
 	display: inline-block;
 	width: 20%;
-	color: steelblue
+	color: steelblue;
+	font-weight: 700;
+}
+
+#score {
+	display: inline-block;
+	width: 20%;
+	color: steelblue;
+	text-align: right;
+	font-weight: 700;
+}
+
+#timer {
+	display: inline-block;
+	width: 20%;
+	color: steelblue;
+	text-align: left;
+	font-weight: 700;
 }
 
 #stripe {
 	background: white;
-	height: 30px;
+	height: 2em;
 	text-align: center;
 	color: black;
 }
@@ -73,3 +90,88 @@ button:hover {
 	color: white;
 	background: steelblue;
 }
+
+button:disabled {
+	color: white;
+	background: darkred;
+}
+
+#instructions {
+	color: white;
+	margin: 20px auto;
+	max-width: 600px;
+	border: steelblue;
+	border-radius: 1em;
+	border-style: dotted;
+	text-align: center;
+	border-spacing: 2em;
+	border-width: 0.5em;
+	
+}
+
+h2 {
+	font-size: 2em;
+}
+
+#instructions p {
+	margin: 2em;
+	text-align: justify;
+}
+
+a{
+	color: steelblue;
+}
+#playername{
+	color: steelblue;
+	border-radius: 1em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#view-scores {
+	text-align: center;
+	text-decoration: none;
+	margin: auto;
+	color: white;
+	font-size: 1.5em;
+}
+
+#again {
+	text-align: center;
+	text-decoration: none;
+	margin: auto;
+	color: steelblue;
+	font-weight: 700;
+	display: inline-block;
+	width: 20%;
+	text-align: right;
+}
+
+#play-button {
+	font-size: 1.5em;
+}
+
+
+#highscores {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+  }
+  
+  #highscores td, #highscores th {
+	border: 1px solid #ddd;
+	padding: 8px;
+	text-align: center;
+  }
+  
+  #highscores tr{background-color: #f2f2f2;}
+  
+  #highscores tr:hover {background-color: #ddd;}
+  
+  #highscores th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: center;
+	background-color: steelblue;
+	color: white;
+  }

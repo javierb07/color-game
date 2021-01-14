@@ -3,6 +3,8 @@
 	<head>
 		<title>Color Game</title>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/colorGame.css">
+		<link rel="shortcut icon" type="image/png" href="/media/favicon.png">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 		<body>
 		<h1>
@@ -11,13 +13,17 @@
 			<span id="colorDisplay">RGB</span> 
 			<br>
 			Color Game
+			<br>
+			Welcome <span id="name"><%=player.playername%></span> <span id="id" style="display: none;"><%=player._id%></span>
 		</h1>
 		<div id="stripe">
-			<button id="reset">New Colors</button>
+			<span id="timer">TIME: 30s</span>
+			<button id="start">Start</button>
 			<span id="message"></span>
 			<button class="mode">Easy</button>
 			<button class="mode selected">Hard</button>
 			<button class="mode ">Hardest</button>
+			<span id="score">SCORE: 0</span>
 		</div>
 			<div id="container">
 				<div class="square"></div>

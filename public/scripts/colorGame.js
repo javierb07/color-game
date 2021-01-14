@@ -1,20 +1,45 @@
 var numSquares = 6;
 var colors = [];
 var pickedColor;
-var tries = 0;
+var score = 0;
+var extra = false;
+var mode = "hard";
+var corrects = 0;
+var choices = 0;
+var time = 30;
 var squares = document.querySelectorAll(".square");
+var buttons = document.querySelectorAll(".mode");
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
+var timerDisplay = document.querySelector("#timer");
+var scoreDisplay = document.querySelector("#score");
 var h1 = document.querySelector("h1");
-var resetButton = document.querySelector("#reset");
+var startButton = document.querySelector("#start");
 var modeButtons = document.querySelectorAll(".mode");
+var playerName = document.getElementById("name").textContent;
+var playerID = document.getElementById("id").textContent;
 
 init();
 
 function init(){
 	setupModeButtons();
+	squares.forEach(element => element.style.display ="none");
+}
+
+function start(){
+	squares.forEach(element => element.style.display ="block");
 	setupSquares();
 	reset();
+	var interval = setInterval(function(){
+		if(time == 0){
+			timerDisplay.textContent = "TIME OVER!";
+			endGame();
+			clearInterval(interval);
+		} else {
+			time--;
+			timerDisplay.textContent = "TIME: " + time +"s";
+		}
+	;}, 1 * 1000);
 }
 
 function setupModeButtons(){
@@ -27,15 +52,17 @@ function setupModeButtons(){
 			switch (this.textContent) {
 				case "Easy":
 					numSquares = 3;
+					mode = "easy";
 					break;
 				case "Hard":
 					numSquares = 6;
+					mode = "hard";
 					break;
 				case "Hardest":
 					numSquares = 9;
+					mode = "hardest";
 					break;
 			}
-			reset();
 		});
 	}
 }
@@ -48,15 +75,21 @@ function setupSquares(){
 			var clickedColor = this.style.background;
 			//compare color to pickedColor
 			if(clickedColor === pickedColor){
-				messageDisplay.textContent = "Correct!";
-				resetButton.textContent = "Play Again?"
-				changeColors(clickedColor);
-				h1.style.background = clickedColor;
-				tries = 0;
-			} else {
-				tries++;
+				score+=1+corrects;
 				this.style.background = "#232323";
-				messageDisplay.textContent = "Try Again. Number of tries: " + tries;
+				h1.style.background = clickedColor;
+				choices++;
+				corrects++;
+				reset();
+				messageDisplay.textContent = "CORRECT!";
+				scoreDisplay.textContent = "SCORE: " + score;
+			} else {
+				choices++;
+				score--;
+				corrects = 0;
+				this.style.background = "#232323";
+				messageDisplay.textContent = "WRONG!";
+				scoreDisplay.textContent = "SCORE: " + score;
 			}
 		});
 	}
@@ -68,7 +101,6 @@ function reset(){
 	pickedColor = pickColor();
 	//change colorDisplay to match picked Color
 	colorDisplay.textContent = pickedColor;
-	resetButton.textContent = "New Colors"
 	messageDisplay.textContent = "";
 	//change colors of squares
 	for(var i = 0; i < squares.length; i++){
@@ -82,8 +114,8 @@ function reset(){
 	h1.style.background = "steelblue";
 }
 
-resetButton.addEventListener("click", function(){
-	reset();
+startButton.addEventListener("click", function(){
+	start();
 })
 
 function changeColors(color){
@@ -119,4 +151,21 @@ function randomColor(){
 	//pick a "blue" from  0 -255
 	var b = Math.floor(Math.random() * 256);
 	return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+function endGame(){
+	var sendData = {playerName: playerName, score: score, difficulty: mode, id: playerID}
+	console.log(sendData);
+	$.ajax({
+		url: window.location.href,    
+		type: 'PUT',   //type is any HTTP method
+		data: {
+			data: sendData
+		},      //Data as js object
+		success: function () {
+			setTimeout(() => {
+				window.location.href = window.location.href.slice(0,window.location.href.length-9)+"/scores";  
+			}, 2000);
+		}
+	})
 }

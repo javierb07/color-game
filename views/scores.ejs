@@ -3,6 +3,7 @@
 	<head>
 		<title>Color Game</title>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/colorGame.css">
+		<link rel="shortcut icon" type="image/png" href="/media/favicon.png">
 	</head>
 		<body>
 		<h1>
@@ -16,10 +17,69 @@
 			<button class="mode">Easy</button>
 			<button class="mode selected">Hard</button>
 			<button class="mode ">Hardest</button>
+			<a id="again" href="/">PLAY AGAIN</a></span>
 		</div>
 			<div id="container">
-
+				<table id="highscores">
+					<thead>
+						<tr>
+							<th>Player Name</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+				<% if (playersEasy.length > 0) { %>
+					<% playersEasy.forEach(function(player){%>
+						<% var name = player.playername; %>
+						<% var score = player.score; %>
+						<tr class="<%=player.difficulty%>">
+							<td><%=name%></td>
+							<td><%=score%></td>
+						</tr>
+					<%});%>
+				<% } else { %>
+					<% var name = "-"; %>
+					<% var score = "-"; %>
+					<tr class="<%=player.difficulty%>">
+						<td><%=name %></td>
+						<td><%=score%></td>
+					</tr>
+				<% } %>
+				<% if (playersHard.length > 0) { %>
+					<% playersHard.forEach(function(player){%>
+						<% var name = player.playername; %>
+						<% var score = player.score; %>
+						<tr class="<%=player.difficulty%>">
+							<td><%=name%></td>
+							<td><%=score%></td>
+						</tr>
+					<%});%>
+				<% } else { %>
+					<% var name = "-"; %>
+					<% var score = "-"; %>
+					<tr class="<%=player.difficulty%>">
+						<td><%=name %></td>
+						<td><%=score%></td>
+					</tr>
+				<% } %>
+				<% if (playersHardest.length > 0) { %>
+					<% playersHardest.forEach(function(player){%>
+						<% var name = player.playername; %>
+						<% var score = player.score; %>
+						<tr class="<%=player.difficulty%>">
+							<td><%=name%></td>
+							<td><%=score%></td>
+						</tr>
+					<%});%>
+				<% } else { %>
+					<% var name = "-"; %>
+					<% var score = "-"; %>
+					<tr class="<%=player.difficulty%>">
+						<td><%=name %></td>
+						<td><%=score%></td>
+					</tr>
+				<% } %>
+				</table>
 			</div>
-		<script type="text/javascript" src="/scripts/"></script>
+		<script type="text/javascript" src="/scripts/scores.js"></script>
 	</body>
 </html>

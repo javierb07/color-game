@@ -3,21 +3,42 @@
 	<head>
 		<title>Color Game</title>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/colorGame.css">
+		<link rel="shortcut icon" type="image/png" href="/media/favicon.png">
 	</head>
 		<body>
-		<h1>
-			The Great 
-			<br>
-			<span>RGB</span> 
-			<br>
-			Color Game
-		</h1>
-		<div id="stripe">
-
-		</div>
-			<div id="container">
+			<h1>
+				The Great 
+				<br>
+				<span>RGB</span> 
+				<br>
+				Color Game
+			</h1>
+			<div id="stripe">
 
 			</div>
-		<script type="text/javascript" src="/scripts/"></script>
+			<div id="instructions">
+				<h2>Instructions</h2>
+				<p> This is a color guessing game based on the <a href="https://en.wikipedia.org/wiki/RGB_color_model">RGB color model</a>.
+					Your objective is to guess as many colors as possible during the 30 seconds the game lasts. Bonus points are awarded
+					for completing a "set" (3, 6, or 9 colors depending on difficulty) with no errors, which also adds 5 seconds to the timer.
+					On the top you will see an RGB color (e.g. RGB(255,0,0)) and several blocks, where only one will be that color. You will lose
+					points if you choose a wrong one, but you cannot linger long because the clock is ticking!
+				</p>
+				<p>
+					Type your name to start playing!
+				</p>
+				<form action="/color-game" method="POST">
+					<div>
+						<input id="playername" class="" type="text" onkeyup="stoppedTyping()" name="playername" placeholder="player name">
+					</div>
+					<br>
+					<button id="play-button" disabled>Play</button>
+					<p></p>
+					<button></button><a id="view-scores" href="/scores">View Highcores</a></button>
+					<br>
+					<p></p>
+				</form>
+			</div>
+		<script type="text/javascript" src="/scripts/index.js"></script>
 	</body>
 </html>
