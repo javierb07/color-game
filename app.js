@@ -82,11 +82,11 @@ app.get('/scores', function(req,res){
         } else {
             let playersEasy = players.filter(obj => {return obj.difficulty === "easy"});
             playersEasy.sort((a, b) => { return b.score - a.score; });
+            let playersNormal = players.filter(obj => {return obj.difficulty === "normal"});
+            playersNormal.sort((a, b) => { return b.score - a.score; });
             let playersHard = players.filter(obj => {return obj.difficulty === "hard"});
             playersHard.sort((a, b) => { return b.score - a.score; });
-            let playersHardest = players.filter(obj => {return obj.difficulty === "hardest"});
-            playersHardest.sort((a, b) => { return b.score - a.score; });
-            res.render("scores", {playersEasy: playersEasy, playersHard: playersHard, playersHardest: playersHardest});
+            res.render("scores", {playersEasy: playersEasy, playersNormal: playersNormal, playersHard: playersHard});
         }
     })
 });
@@ -99,11 +99,11 @@ app.put('/scores', function(req,res){
         } else {
             let playersEasy = players.filter(obj => {return obj.difficulty === "easy"});
             playersEasy.sort((a, b) => { return b.score - a.score; });
+            let playersNormal = players.filter(obj => {return obj.difficulty === "normal"});
+            playersNormal.sort((a, b) => { return b.score - a.score; });
             let playersHard = players.filter(obj => {return obj.difficulty === "hard"});
             playersHard.sort((a, b) => { return b.score - a.score; });
-            let playersHardest = players.filter(obj => {return obj.difficulty === "hardest"});
-            playersHardest.sort((a, b) => { return b.score - a.score; });
-            res.render("scores", {playersEasy: playersEasy, playersHard: playersHard, playersHardest: playersHardest});
+            res.render("scores", {playersEasy: playersEasy, playersNormal: playersNormal, playersHard: playersHard});
         }
     })
 });

@@ -11,9 +11,25 @@ body {
 	float: left;
 	margin: 1.66%;
 	border-radius: 15%;
-	transition: background 0.6s;
-	-webkit-transition: background 0.6s;
-	-moz-transition: background 0.6s;
+	transition: all 0.3s 0.05s ease-out;
+}
+
+.square {
+	width: 30%;
+	padding-bottom: 30%;
+	float: left;
+	margin: 1.6666%;
+	border-radius: 15%;
+	transition: all 0.3s 0.05s ease-out;
+}
+
+.square:focus {
+	outline: none;	
+}
+
+.square:hover {
+	transform: scale(1.1, 1.1);
+	border-radius: 50%;
 }
 
 #container {

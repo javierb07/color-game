@@ -6,6 +6,7 @@
 		<link rel="shortcut icon" type="image/png" href="/media/favicon.png">
 	</head>
 		<body>
+		<audio id="selectSound" src="/media/select.mp3"></audio>
 		<h1>
 			The Great 
 			<br>
@@ -15,8 +16,8 @@
 		</h1>
 		<div id="stripe">
 			<button class="mode">Easy</button>
-			<button class="mode selected">Hard</button>
-			<button class="mode ">Hardest</button>
+			<button class="mode selected">Normal</button>
+			<button class="mode ">Hard</button>
 			<a id="again" href="/">PLAY AGAIN</a></span>
 		</div>
 			<div id="container">
@@ -37,8 +38,8 @@
 						</tr>
 					<%});%>
 				<%}%>
-				<% if (playersHard.length > 0) { %>
-					<% playersHard.forEach(function(player){%>
+				<% if (playersNormal.length > 0) { %>
+					<% playersNormal.forEach(function(player){%>
 						<% var name = player.playername; %>
 						<% var score = player.score; %>
 						<tr class="<%=player.difficulty%>">
@@ -47,8 +48,8 @@
 						</tr>
 					<%});%>
 				<%}%>
-				<% if (playersHardest.length > 0) { %>
-					<% playersHardest.forEach(function(player){%>
+				<% if (playersHard.length > 0) { %>
+					<% playersHard.forEach(function(player){%>
 						<% var name = player.playername; %>
 						<% var score = player.score; %>
 						<tr class="<%=player.difficulty%>">

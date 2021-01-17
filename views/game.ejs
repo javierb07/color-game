@@ -7,6 +7,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	</head>
 		<body>
+			<audio id="correctSound" src="/media/correct.mp3"></audio>
+			<audio id="wrongSound" src="/media/wrong.mp3"></audio>
+			<audio id="selectSound" src="/media/select.mp3"></audio>
 		<h1>
 			The Great 
 			<br>
@@ -21,8 +24,8 @@
 			<button id="start">Start</button>
 			<span id="message"></span>
 			<button class="mode">Easy</button>
-			<button class="mode selected">Hard</button>
-			<button class="mode ">Hardest</button>
+			<button class="mode selected">Normal</button>
+			<button class="mode ">Hard</button>
 			<span id="score">SCORE: 0</span>
 		</div>
 			<div id="container">
