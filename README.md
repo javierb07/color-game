@@ -19,4 +19,4 @@ A web based color guessing game designed to help practice RGB colors. Based of a
 
 ### Play the game:
 
-https://color-game-07.herokuapp.com/
+[Color Game](https://color-game-jb.herokuapp.com/)
