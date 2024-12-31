@@ -4,15 +4,15 @@ A web based color guessing game designed to help practice RGB colors. Based of a
 
 ## Additions from the base code
 
-* Hardest mode
-* Scores
-* Instructions on how to play
-* Database
-* Highscore table
-* Sound
+- Hardest mode
+- Scores
+- Instructions on how to play
+- Database
+- High Score table
+- Sound
 
 ## Ideas to add:
 
-* Animations
-* UI improvements
-* Mobile friendly version
+- Animations
+- UI improvements
+- Mobile friendly version
